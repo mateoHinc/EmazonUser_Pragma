@@ -1,0 +1,3 @@
+app:
+  description: "Emazon's User Microservice API"
+  version: "1.0"
