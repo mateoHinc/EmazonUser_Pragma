@@ -32,7 +32,7 @@ public class UserUseCase implements UserServicePort {
 
     @Override
     public void createWarehouseAssistant(User user) {
-        user.setRole(new Role(null, Roles.WAREHOUSEASSISTANT));
+        user.setRole(new Role(null, Roles.WAREHOUSE_ASSISTANT));
         createUser(user);
     }
 }

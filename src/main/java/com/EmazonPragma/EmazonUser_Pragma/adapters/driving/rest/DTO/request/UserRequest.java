@@ -22,7 +22,7 @@ public class UserRequest {
 
     @NotNull(message = DomainConstants.EMPTY_LASTNAME_MESSAGE)
     @Size(min = 2, max = 64, message = DomainConstants.OUT_OF_BOUNDS_LASTNAME_MESSAGE)
-    private String lastname;
+    private String lastName;
 
     @NotNull(message = DomainConstants.EMPTY_IDENTITY_DOCUMENT_MESSAGE)
     @Pattern(regexp = DomainConstants.IDENTITY_DOCUMENT_REGEX, message = DomainConstants.NOT_NUMERIC_IDENTITY_DOCUMENT_MESSAGE)

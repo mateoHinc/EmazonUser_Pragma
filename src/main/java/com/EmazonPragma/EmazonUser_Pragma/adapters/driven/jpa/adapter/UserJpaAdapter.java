@@ -19,8 +19,7 @@ public class UserJpaAdapter implements UserPersistencePort {
     public void createUser(User user) {
         UserEntity userEntity = userEntityMapper.toEntity(user);
         userEntity.setRole(
-                roleRepository.findByName(userEntity.getRole().getRole()).orElse(null)
-        );
+                roleRepository.findByRoleName(userEntity.getRole().getRoleName()).orElse(null));
         userRepository.save(userEntity);
     }
 

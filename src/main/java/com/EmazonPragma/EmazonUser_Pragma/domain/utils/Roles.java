@@ -2,6 +2,6 @@ package com.EmazonPragma.EmazonUser_Pragma.domain.utils;
 
 public enum Roles {
     ADMIN,
-    WAREHOUSEASSISTANT,
+    WAREHOUSE_ASSISTANT,
     CUSTOMER
 }

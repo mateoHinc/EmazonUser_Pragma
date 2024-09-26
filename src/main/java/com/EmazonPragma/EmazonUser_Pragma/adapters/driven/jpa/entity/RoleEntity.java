@@ -20,5 +20,5 @@ public class RoleEntity implements Serializable {
     private Long id;
 
     @Column(unique = true, nullable = false)
-    private Roles role;
+    private Roles roleName;
 }

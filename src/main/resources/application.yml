@@ -1,3 +1,9 @@
+spring:
+  application:
+    name: EmazonUser_Pragma
+  profiles:
+    active: local
+
 app:
   description: "Emazon's User Microservice API"
   version: "1.0"

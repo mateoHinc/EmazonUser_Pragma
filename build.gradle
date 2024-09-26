@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '3.3.4'
 	id 'io.spring.dependency-management' version '1.1.6'
+	id "org.springdoc.openapi-gradle-plugin" version "1.9.0"
 }
 
 group = 'com.EmazonPragma'
@@ -24,44 +25,37 @@ repositories {
 }
 
 dependencies {
+	annotationProcessor 'org.projectlombok:lombok'
+	annotationProcessor group: 'org.mapstruct', name: 'mapstruct-processor', version: '1.6.0'
+
+	implementation group: 'org.mapstruct', name: 'mapstruct', version: '1.6.0'
+	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.6.0'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation', version: '3.3.3'
+
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	runtimeOnly 'com.h2database:h2'
 	runtimeOnly 'com.mysql:mysql-connector-j'
-	annotationProcessor 'org.projectlombok:lombok'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	// MapStruct
-	implementation 'org.mapstruct:mapstruct:1.5.5.Final'
-	// Procesador de anotaciones para MapStruct
-	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.5.Final'
-	//security
-	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-web
-	implementation 'org.springframework.security:spring-security-web:6.3.3'
-	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-test
-	testImplementation 'org.springframework.security:spring-security-test:6.3.3'
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
-	implementation 'org.springframework.boot:spring-boot-starter-web:3.3.4'
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
-	testImplementation 'org.springframework.boot:spring-boot-starter-test:3.3.4'
-	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.12.6'
-	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.12.6'
-	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.12.6'
-	// https://mvnrepository.com/artifact/com.auth0/java-jwt
-	implementation 'com.auth0:java-jwt:4.4.0'
-	//open api code generation
-	implementation group: 'org.springdoc', name: 'springdoc-openapi-starter-webmvc-ui', version: '2.6.0'
-	//open api ui
-	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0'
-	//
+
+	// Security
 	testImplementation group: 'org.springframework.security', name: 'spring-security-test', version: '6.3.3'
 	implementation group: 'org.springframework.security', name: 'spring-security-web', version: '6.3.3'
 	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: '3.3.3'
 	implementation group: 'io.jsonwebtoken', name: 'jjwt-api', version: '0.12.6'
 	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-impl', version: '0.12.6'
 	runtimeOnly group: 'io.jsonwebtoken', name: 'jjwt-jackson', version: '0.12.6'
+
+	// Because test didn't work without that
+	implementation group: 'com.fasterxml.jackson.datatype', name: 'jackson-datatype-jsr310', version: '2.17.2'
+
 
 }
 

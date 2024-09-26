@@ -1,0 +1,29 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost/emazonUser?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: root
+    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+logging:
+  level:
+    web: trace
+    org:
+      springframework:
+        web: trace
+
+jwt:
+  secret_key: ZjVZeC02K04=
+  expiration_time: 144000
+
+server:
+  port: 8090
+
+allowed-origins:
+  http://localhost:3000/,
+  *,
