@@ -28,6 +28,7 @@ public class UserUseCase implements UserServicePort {
         if(userPersistencePort.userExistsByNumberDocument(user.getNumberDocument())) {
             throw new UserDocumentAlreadyExistsException(user.getNumberDocument());
         }
+        userPersistencePort.createUser(user);
     }
 
     @Override
