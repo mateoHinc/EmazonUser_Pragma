@@ -6,4 +6,5 @@ public interface UserPersistencePort {
     void createUser(User user);
     boolean userExistsByNumberDocument(String numberDocument);
     boolean userExistsByEmail(String email);
+    boolean existsRolByName(String role);
 }

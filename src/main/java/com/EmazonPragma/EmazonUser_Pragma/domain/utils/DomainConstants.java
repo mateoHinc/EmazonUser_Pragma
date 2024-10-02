@@ -55,4 +55,5 @@ public class DomainConstants {
     public static final String NOT_NUMERIC_IDENTITY_DOCUMENT_MESSAGE = "Identity document must be numerical only";
 
     public static final String USER_WITH_EMAIL_NOT_FOUND_MESSAGE = "User with email '%s' not found";
+    public static final String ROLE_NOT_FOUND = "A role %s not found.";
 }

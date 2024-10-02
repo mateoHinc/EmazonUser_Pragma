@@ -18,6 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Inheritance(strategy = InheritanceType.JOINED)
 public class UserEntity implements Serializable, UserDetails {
 
     @Id
@@ -45,15 +46,13 @@ public class UserEntity implements Serializable, UserDetails {
     @Column(nullable = false)
     private String password;
 
-    @ManyToOne(cascade = {
-            CascadeType.MERGE
-    })
+    @ManyToOne
     @JoinColumn(name = "id_role", referencedColumnName = "id")
     private RoleEntity role;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_"+getRole().getRoleName().name()));
+        return List.of(new SimpleGrantedAuthority("ROLE_"+getRole().getName()));
     }
 
     @Override
