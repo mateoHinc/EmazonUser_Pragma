@@ -23,12 +23,6 @@ public class ExceptionAdvisor {
                 .message(message).build();
     }
 
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<ExceptionResponse> handleRuntimeException(RuntimeException e) {
-        String message = e.getMessage() == null ? e.getClass().getSimpleName() : e.getMessage();
-        ExceptionResponse exceptionResponse = createExceptionResponse(HttpStatus.INTERNAL_SERVER_ERROR, message);
-        return ResponseEntity.status(exceptionResponse.getStatusCode()).body(exceptionResponse);
-    }
 
     @ExceptionHandler(HttpMessageConversionException.class)
     public ResponseEntity<ExceptionResponse> handleBadRequestException(HttpMessageConversionException e) {

@@ -45,4 +45,9 @@ public class UserJpaAdapter implements UserPersistencePort {
     public boolean existsRolByName(String role) {
         return roleRepository.findByName(role).isPresent();
     }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userEntityMapper.toUser(userRepository.findByEmail(email).orElseThrow());
+    }
 }

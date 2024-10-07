@@ -1,6 +1,7 @@
 package com.EmazonPragma.EmazonUser_Pragma.adapters.driven.jpa.entity;
 
 import jakarta.persistence.*;
+import jakarta.transaction.Transactional;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -51,13 +52,15 @@ public class UserEntity implements Serializable, UserDetails {
     private RoleEntity role;
 
     @Override
+    @Transactional
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority("ROLE_"+getRole().getName()));
     }
 
     @Override
+    @Transactional
     public String getUsername() {
-        return "";
+        return this.email;
     }
 
     @Override

@@ -7,4 +7,5 @@ public interface UserPersistencePort {
     boolean userExistsByNumberDocument(String numberDocument);
     boolean userExistsByEmail(String email);
     boolean existsRolByName(String role);
+    User getUserByEmail(String email);
 }

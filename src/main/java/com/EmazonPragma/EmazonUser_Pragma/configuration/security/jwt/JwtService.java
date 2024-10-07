@@ -23,7 +23,7 @@ public class JwtService {
     private String secret;
 
     @Value("${jwt.expiration_time}")
-    private String expirationTime;
+    private int expirationTime;
 
     public String generateToke(Map<String, String> claims, UserDetails userDetails) {
         return Jwts.builder()

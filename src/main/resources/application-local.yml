@@ -18,8 +18,8 @@ logging:
         web: trace
 
 jwt:
-  secret_key: ZjVZeC02K04=
-  expiration_time: 144000
+  secret_key: 1BorR6cM3fsqPk+795JYhnS6OTLIL3GVKXvatr8J5+0KdCxiqwVbvhFrCG8ME+KT
+  expiration_time: 86400000
 
 server:
   port: 8090

@@ -40,4 +40,9 @@ public class UserUseCase implements UserServicePort {
     public void createWarehouseAssistant(User user) {
         createUser(user);
     }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userPersistencePort.getUserByEmail(email);
+    }
 }
